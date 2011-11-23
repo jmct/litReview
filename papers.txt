@@ -1,0 +1,22 @@
+Pomset Interpretations of  Parallel Functional Programs
+    Paul Hudak
+
+Algorithm + Strategy = Parallelism
+    Trinde, Hammond, Peyton Jones
+
+GPH: An Architecture-Independent functional language
+
+Parallel Graph Reduction with the <v, G>-Machine
+    Augustsson, Johnsson
+
+An Algebraic Theory of graph reduction
+    Arnborg, Courcelle, Proskurowski, Seese
+
+An Effective Speculation Evaluation Technique for Parallel Graph Reduction
+    James S. Mattson
+
+High Performane Parallel Graph Reduction
+    Peyton Jones, Clack, Salkild
+
+GUM: Portable Parallel Implementation of Haskell
+    Trinder, Hammond, Mattson, Partridge, Peyton Jones
