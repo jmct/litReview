@@ -128,43 +128,38 @@
 
 \section{Introduction}
 
-\subsection[What are Quantum Dots?]{Explaining Quantum Dots}
+\subsection[Motivation]{Motivation}
 
-\begin{frame}
-The Sch\"{o}dinger Equation
-
-\begin{equation}
-E\psi = -\frac{\hbar ^2}{2m}\nabla ^2 \psi + V\psi \nonumber
-\label{eq:timeIndependent2}
-\end{equation}
-
-Where
-
-\begin{equation}
-\nabla ^2 =  \left(\frac{\partial ^2}{\partial x} + \frac{\partial ^2}{\partial y} + \frac{\partial ^2}{\partial z}\right) \nonumber
-\label{eq:laplace}
-\end{equation}
-and
-$$\psi \rightarrow \text{the wave equation for the particle}$$
+\begin{frame}{Why Functional Programming?}
+    \begin{itemize}
+        \item
+            The lack of state in pure functional languages makes parallel programming easier to 
+            reason about. 
+        \item
+            The largest sucesses in large scale parallelism have come from the declarative
+            and functional paradigms (Databases, Map/Reduce).
+    \end{itemize}
 \end{frame}
 
+\begin{frame}{Why Not Imperative Programming?}
+    \begin{itemize}
+        \item
+            Mutable state introduces more resource sharing complications that can lead to dealock
+        \item
+            Because of the `step-by-step' nature of imperative programming, new language 
+            constructs are needed to support parallelism. They will not work ``as is''. 
+    \end{itemize}
+\end{frame}
 \begin{frame}[fragile]{Understanding Potential Wells}{Potential Wells}
-   Free particles like to reside where the potential energy is low
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.7]{figures/realWell.eps}
-\end{figure}
-  Normally a function describing this function can be complex (the red line), so physicists
-  approximate it using a trivial function to make things easier (blue line) \cite{dots}.
 \end{frame}
 
-\begin{frame}[fragile]{Quantum Confinement}{}
-  Infinitely deep well $\rightarrow$ quantum confinement 
+\begin{frame}[fragile]{What GRIP looks like}{}
 
 \begin{figure}[h]
  \centering
- \includegraphics[scale=.7]{figures/confined.eps}
+ \includegraphics[scale=.4]{figures/GRIP.png}
+ \caption{A circuit board for the GRIP machine in the making \cite{PFPAnIntro}}
 \end{figure}
 \end{frame}
 
@@ -190,7 +185,7 @@ $$\psi \rightarrow \text{the wave equation for the particle}$$
 \centering
 Questions
 \end{frame}
-\bibliography{diss}
+\bibliography{seminar}
 
 \end{document}
 
