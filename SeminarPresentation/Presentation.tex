@@ -163,6 +163,7 @@
         \includegraphics[scale=.4]{figures/numPapers.png}
         \caption{The ebb and flow of PFP}
     \end{figure}
+
 \end{frame}
 
 \section{Abstract Machines}
@@ -170,25 +171,37 @@
 \begin{frame}{General Properties}
 \end{frame}
 
-\subsection[The $< v, G> Machine$]{The $< v, G> Machine$}
+\subsection[The $< \nu, G> Machine$]{The $< \nu, G> Machine$}
 
 \begin{frame}{Simple G-Machine}
-Stack based, G-Code, No copying.
+Stack based machine with `G-Code' used as an intermediate language. G-Code is generated for
+every supercombinator in the program, leaving the G-Machine with a set of G-Code fragments.  
+    \begin{figure}
+    \centering
+        \includegraphics[scale=.3]{figures/GMachineState.png}
+    \end{figure}
 \end{frame}
 
-\begin{frame}{Example}
-Example graph reduction.
+\begin{frame}{Example Graph Reduction}
+    \begin{figure}
+    \centering
+        \includegraphics[scale=.3]{figures/GraphRed1.png}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Simple Parallelization}
-Diagram of simple parallelization.
+    \begin{figure}
+    \centering
+        \includegraphics[scale=.3]{figures/simpleParallel.png}
+    \end{figure}
 \end{frame}
-\begin{frame}{<v, G> Machine}
+
+\begin{frame}{$<\nu, G> Machine$}
 Packet based, shares task and graph
 \end{frame}
 
 
-\subsection[The ABC Machines]{ABC Machine}
+\subsection[The ABC Machines]{The ABC Machine}
 \begin{frame}{Basics}
 Packet based, shares task and graph
 \end{frame}
