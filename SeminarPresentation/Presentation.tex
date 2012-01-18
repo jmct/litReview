@@ -133,27 +133,69 @@
 \begin{frame}{Why Functional Programming?}
     \begin{itemize}
         \item
-            The lack of state in pure functional languages makes parallel programming easier to 
-            reason about. 
+            Parallel programming in imperative style is difficult. The lack of state in
+            functional programs provides an advantage \cite{PFPAnIntro}.
         \item
-            The largest sucesses in large scale parallelism have come from the declarative
+            The largest successes in large scale parallelism have come from the declarative
             and functional paradigms (Databases, Map/Reduce).
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Why Not Imperative Programming?}
+\begin{frame}{What's taken to long?}
     \begin{itemize}
         \item
-            Mutable state introduces more resource sharing complications that can lead to dealock
+            Throughout the 80's researchers worked on parallel graph reduction for functional
+            programs. However, the research could not keep up with the massive increase
+            in single CPU processing speed/power. 
         \item
-            Because of the `step-by-step' nature of imperative programming, new language 
-            constructs are needed to support parallelism. They will not work ``as is''. 
+            Moore's law is still holding, but single thread CPUs are not seeing the same speed
+            increases. Additional power is continually coming from increasing the number of 
+            processing cores.
+             
     \end{itemize}
 \end{frame}
-\begin{frame}[fragile]{Understanding Potential Wells}{Potential Wells}
 
+\subsection[Research Popularity]{Research Popularity}
+
+\begin{frame}[fragile]{Popularity of Parallel Functional Programming}{}
+    \begin{figure}
+    \centering
+        \includegraphics[scale=.4]{figures/numPapers.png}
+        \caption{The ebb and flow of PFP}
+    \end{figure}
 \end{frame}
 
+\section{Abstract Machines}
+
+\begin{frame}{General Properties}
+\end{frame}
+
+\subsection[The $< v, G> Machine$]{The $< v, G> Machine$}
+
+\begin{frame}{Simple G-Machine}
+Stack based, G-Code, No copying.
+\end{frame}
+
+\begin{frame}{Example}
+Example graph reduction.
+\end{frame}
+
+\begin{frame}{Simple Parallelization}
+Diagram of simple parallelization.
+\end{frame}
+\begin{frame}{<v, G> Machine}
+Packet based, shares task and graph
+\end{frame}
+
+
+\subsection[The ABC Machines]{ABC Machine}
+\begin{frame}{Basics}
+Packet based, shares task and graph
+\end{frame}
+
+\section{Physical Machines}
+
+\subsection[GRIP]{GRIP: Graph Reduction In Parallel}
 \begin{frame}[fragile]{What GRIP looks like}{}
 
 \begin{figure}[h]
@@ -163,6 +205,7 @@
 \end{figure}
 \end{frame}
 
+\subsection[ALICE]{ALICE}
 
 \begin{frame}{Quantum Dots as Artificial Atoms}{}
   % - A title should summarize the slide in an understandable fashion
@@ -185,8 +228,10 @@
 \centering
 Questions
 \end{frame}
+\begin{frame}
 \bibliography{seminar}
 
+\end{frame}
 \end{document}
 
 
