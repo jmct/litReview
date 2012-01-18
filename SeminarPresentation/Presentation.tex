@@ -44,11 +44,14 @@
 
 \usepackage{times}
 \usepackage[T1]{fontenc}
-\RequirePackage[numbers,sort&compress,square,comma]{natbib}
-\bibliographystyle{IEEEtranN}
+%\RequirePackage[numbers,sort&compress,square,comma]{natbib}
+%\bibliographystyle{IEEEtranN}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 
+\usepackage[authoryear,round,colon]{natbib}
+\bibliographystyle{plainnat}
+\def\newblock{\hskip .11em plus .33em minus .07em}
 
 \title[Parallel Graph Reduction] % (optional, use only with long paper titles)
 {Easy parallel functional programming, the hard way.}
@@ -57,7 +60,7 @@
 {} % (optional)
 
 \author[] % (optional, use only with lots of authors)
-{J. M. Calderon Trilla}
+{J. M. Calder\'{o}n Trilla}
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
 
@@ -134,7 +137,7 @@
     \begin{itemize}
         \item
             Parallel programming in imperative style is difficult. The lack of state in
-            functional programs provides an advantage \cite{PFPAnIntro}.
+            functional programs provides an advantage \citep{PFPAnIntro}.
         \item
             The largest successes in large scale parallelism have come from the declarative
             and functional paradigms (Databases, Map/Reduce).
@@ -167,8 +170,18 @@
 \end{frame}
 
 \section{Abstract Machines}
+\subsection[Design Choices for Parallel Implementations of Functional Languages]{Design Choices for Parallel Implementations of FL}
 
-\begin{frame}{General Properties}
+\begin{frame}{Abstract Machines: Design Choices \citep{clackBook}}
+    \begin{enumerate}
+        \item Graph can be stored centrally, or distributed amongst several memories;
+        \item Each processing agent is made up of \emph{one or more} sequential abstract
+                machines that execute a thread;
+        \item Threads that are not being executed reside in one or more thread pools, threads
+                that have not begun evaluation are known as sparks.
+        \item Synchronization is required between processing agents when the result of a reduction
+                is needed by another thread. 
+    \end{enumerate}
 \end{frame}
 
 \subsection[The $< \nu, G> Machine$]{The $< \nu, G> Machine$}
@@ -197,6 +210,7 @@ every supercombinator in the program, leaving the G-Machine with a set of G-Code
 \end{frame}
 
 \begin{frame}{$<\nu, G> Machine$}
+
 Packet based, shares task and graph
 \end{frame}
 
@@ -214,7 +228,7 @@ Packet based, shares task and graph
 \begin{figure}[h]
  \centering
  \includegraphics[scale=.4]{figures/GRIP.png}
- \caption{A circuit board for the GRIP machine in the making \cite{PFPAnIntro}}
+ \caption{A circuit board for the GRIP machine in the making \citep{PFPAnIntro}}
 \end{figure}
 \end{frame}
 
@@ -241,10 +255,15 @@ Packet based, shares task and graph
 \centering
 Questions
 \end{frame}
-\begin{frame}
-\bibliography{seminar}
+\begin{frame}[allowframebreaks]{References}  %allowframebreaks
 
-\end{frame}
+% \sffamily
+    \def\bibfont{\scriptsize}
+    % \def\bibfont{\footnotesize}
+    \bibliography{seminar}
+
+\end{frame} 
+
 \end{document}
 
 
