@@ -178,9 +178,9 @@
         \item Each processing agent is made up of \emph{one or more} sequential abstract
                 machines that execute a thread;
         \item Threads that are not being executed reside in one or more thread pools, threads
-                that have not begun evaluation are known as sparks.
+                that have not begun evaluation are known as sparks;
         \item Synchronization is required between processing agents when the result of a reduction
-                is needed by another thread. 
+                is needed by another thread 
     \end{enumerate}
 \end{frame}
 
@@ -207,13 +207,36 @@ every supercombinator in the program, leaving the G-Machine with a set of G-Code
     \centering
         \includegraphics[scale=.3]{figures/simpleParallel.png}
     \end{figure}
+
+
+Even this simple strategy has a number of problems to address:
 \end{frame}
 
-\begin{frame}{$<\nu, G> Machine$}
-
-Packet based, shares task and graph
+\begin{frame}{$<\nu, G>\-Machine$ \citep{vGMachine}}
+\begin{itemize}
+    \item
+        Like the Parallel G-Machine the $<\nu, G>\-Machine$ stores a central graph and task pool
+    \item
+        Unlike the PGM, it is packet based instead of stack based
+\end{itemize}
 \end{frame}
 
+\begin{frame}{A $<\nu, G>\-Machine$ Packet}
+
+    \begin{figure}
+    \centering
+        \includegraphics[scale=.3]{figures/packet.png}
+        \caption{A $<\nu, G>\-Machine$ packet}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{A $<\nu, G>\-Machine$ Graph}
+    \begin{figure}
+    \centering
+        \includegraphics[scale=.4]{figures/vGraph.png}
+        \caption{A $<\nu, G>\-Machine$ graph with multiple points of execution}
+    \end{figure}
+\end{frame}
 
 \subsection[The ABC Machines]{The ABC Machine}
 \begin{frame}{Basics}
