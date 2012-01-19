@@ -54,7 +54,7 @@
 \def\newblock{\hskip .11em plus .33em minus .07em}
 
 \title[Parallel Graph Reduction] % (optional, use only with long paper titles)
-{Easy parallel functional programming, the hard way.}
+{Parallel Graph Reduction for Implementing Functional Languages}
 
 \subtitle
 {} % (optional)
@@ -133,23 +133,25 @@
 
 \subsection[Motivation]{Motivation}
 
-\begin{frame}{Why Functional Programming?}
+\begin{frame}{Motivation for Parallel Functional Language Implementations}
     \begin{itemize}
         \item
             Parallel programming in imperative style is difficult. The lack of state in
             functional programs provides an advantage \citep{PFPAnIntro}.
+\pause
         \item
             The largest successes in large scale parallelism have come from the declarative
             and functional paradigms (Databases, Map/Reduce).
     \end{itemize}
 \end{frame}
 
-\begin{frame}{What's taken to long?}
+\begin{frame}{Moore's Law's Effect on Parallel Functional Programming}
     \begin{itemize}
         \item
             Throughout the 80's researchers worked on parallel graph reduction for functional
             programs. However, the research could not keep up with the massive increase
             in single CPU processing speed/power. 
+\pause
         \item
             Moore's law is still holding, but single thread CPUs are not seeing the same speed
             increases. Additional power is continually coming from increasing the number of 
@@ -158,9 +160,9 @@
     \end{itemize}
 \end{frame}
 
-\subsection[Research Popularity]{Research Popularity}
+\subsection{Conference Publications for PFP from 1980-2011}
 
-\begin{frame}[fragile]{Popularity of Parallel Functional Programming}{}
+\begin{frame}[fragile]{Publication counts for Parallel Functional Programming}{}
     \begin{figure}
     \centering
         \includegraphics[scale=.4]{figures/numPapers.png}
@@ -175,10 +177,13 @@
 \begin{frame}{Abstract Machines: Design Choices \citep{clackBook}}
     \begin{enumerate}
         \item Graph can be stored centrally, or distributed amongst several memories;
+\pause
         \item Each processing agent is made up of \emph{one or more} sequential abstract
                 machines that execute a thread;
+\pause
         \item Threads that are not being executed reside in one or more thread pools, threads
                 that have not begun evaluation are known as sparks;
+\pause
         \item Synchronization is required between processing agents when the result of a reduction
                 is needed by another thread 
     \end{enumerate}
@@ -208,8 +213,8 @@ every supercombinator in the program, leaving the G-Machine with a set of G-Code
         \includegraphics[scale=.3]{figures/simpleParallel.png}
     \end{figure}
 
-
-Even this simple strategy has a number of problems to address:
+\pause
+Even this simple strategy has a number of problems to address
 \end{frame}
 
 \begin{frame}{$<\nu, G>\-Machine$ \citep{vGMachine}}
@@ -217,6 +222,7 @@ Even this simple strategy has a number of problems to address:
     \item
         Like the Parallel G-Machine the $<\nu, G>\-Machine$ stores a central graph and task pool
     \item
+\pause
         Unlike the PGM, it is packet based instead of stack based
 \end{itemize}
 \end{frame}
@@ -240,7 +246,38 @@ Even this simple strategy has a number of problems to address:
 
 \subsection[The ABC Machines]{The ABC Machine}
 \begin{frame}{Basics}
-Packet based, shares task and graph
+\begin{quote}
+``Basically, the G machine and the ABC machine have much in common, 
+although they differ in almost all details.'' -  \citep{dutchBook}
+\end{quote}
+\pause
+The ABC machine was designed as a portable compiler and interpreter \citep{ABCMachine}, with 
+this in mind the designers played to the strengths of standard computers. 
+\end{frame}
+
+\begin{frame}{Key details of the ABC Machine}
+Stack based machine with 3 stacks:
+    \begin{enumerate}
+        \item The Address stack (A)
+        \item The Basic Values Stack (B)
+        \item The Control Stack (C)
+    \end{enumerate}
+\pause
+The machine can be thought of as having two parts; the idealized graph rewriting machine 
+(The A, B, and the graph), 
+and an abstraction from traditional stack based architecture \citep{ABCMachine}.
+\end{frame}
+
+\begin{frame}{Details of the Parallel ABC Machine}
+\begin{itemize}
+    \item Graph is distributed (unlike GM);
+\pause
+    \item Implements several reducers \emph{per} processor;
+\pause
+    \item Reducers on the same processor can share a local graph;
+\pause
+    \item Communication between processors is used for scheduling and the copying of subgraphs.
+\end{itemize}
 \end{frame}
 
 \section{Physical Machines}
